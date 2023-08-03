@@ -28,4 +28,9 @@
 	color: white;
 	border: 2px black solid;
 	padding: 10px;
+	transition: 1s;
+}
+
+.cell:hover {
+	background-color: red;
 }
