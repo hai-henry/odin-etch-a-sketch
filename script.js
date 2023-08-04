@@ -7,3 +7,10 @@ for (let row = 0; row < 16; ++row) {
 		container.appendChild(cell);
 	}
 }
+
+const cellSelection = document.querySelectorAll(".cell");
+cellSelection.forEach((cell) => {
+	cell.addEventListener("mouseover", () => {
+		cell.classList.add("test");
+	});
+});
