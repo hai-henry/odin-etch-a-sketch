@@ -8,9 +8,16 @@ for (let row = 0; row < 16; ++row) {
 	}
 }
 
-const cellSelection = document.querySelectorAll(".cell");
-cellSelection.forEach((cell) => {
-	cell.addEventListener("mouseover", () => {
-		cell.classList.add("test");
-	});
+const gridSelection = document.querySelector(".grids");
+gridSelection.addEventListener("mouseover", () => {
+	draw();
 });
+
+function draw() {
+	const cellSelection = document.querySelectorAll(".cell");
+	cellSelection.forEach((cell) => {
+		cell.addEventListener("click", () => {
+			cell.classList.add("test");
+		});
+	});
+}
