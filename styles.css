@@ -25,5 +25,9 @@
 	width: 3em;
 	background-color: white;
 	caret-color: transparent;
-	border: 2px solid red;
+	border: 2px solid black;
+}
+
+.test {
+	background-color: aqua;
 }

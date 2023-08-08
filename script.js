@@ -1,28 +1,42 @@
 const container = document.querySelector(".grid-container");
 const grids = document.getElementById("grids");
 
-setGrid(20);
+setGrid(16);
+
+let isDragging = false;
+
+container.addEventListener("click", function (e) {
+	if (e.target.classList.contains("cell")) {
+		draw(e.target);
+	}
+});
+
+container.addEventListener("mousedown", function () {
+	isDragging = true;
+});
+
+container.addEventListener("mouseover", function (e) {
+	if (isDragging) {
+		if (e.target.classList.contains("cell")) {
+			draw(e.target);
+		}
+	}
+});
+
+container.addEventListener("mouseup", function () {
+	isDragging = false;
+});
 
 function setGrid(size) {
 	grids.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
-	for (let row = 0; row < size; ++row) {
-		for (let column = 0; column < size; ++column) {
-			const cell = document.createElement("div");
-			cell.classList.add("cell");
-			container.appendChild(cell);
-		}
+	grids.style.gridTemplateRows = `repeat(${size}, 1fr)`;
+	for (let i = 0; i < size ** 2; ++i) {
+		const cell = document.createElement("div");
+		cell.classList.add("cell");
+		container.appendChild(cell);
 	}
 }
 
-container.addEventListener("mouseover", () => {
-	draw();
-});
-
-function draw() {
-	const cellSelection = document.querySelectorAll(".cell");
-	cellSelection.forEach((cell) => {
-		cell.addEventListener("click", () => {
-			cell.classList.add("test");
-		});
-	});
+function draw(cell) {
+	cell.classList.add("test");
 }
