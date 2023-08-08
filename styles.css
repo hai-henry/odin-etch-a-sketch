@@ -21,13 +21,9 @@
 }
 
 .cell {
-	height: 3em;
-	width: 3em;
+	height: 2rem;
+	width: 2rem;
 	background-color: white;
 	caret-color: transparent;
-	border: 2px solid black;
-}
-
-.test {
-	background-color: aqua;
+	border: 0.05rem solid black;
 }

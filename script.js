@@ -5,14 +5,11 @@ setGrid(16);
 
 let isDragging = false;
 
-container.addEventListener("click", function (e) {
+container.addEventListener("mousedown", function (e) {
+	isDragging = true;
 	if (e.target.classList.contains("cell")) {
 		draw(e.target);
 	}
-});
-
-container.addEventListener("mousedown", function () {
-	isDragging = true;
 });
 
 container.addEventListener("mouseover", function (e) {
@@ -33,10 +30,11 @@ function setGrid(size) {
 	for (let i = 0; i < size ** 2; ++i) {
 		const cell = document.createElement("div");
 		cell.classList.add("cell");
+		cell.setAttribute("draggable", false);
 		container.appendChild(cell);
 	}
 }
 
 function draw(cell) {
-	cell.classList.add("test");
+	cell.style.backgroundColor = "blue";
 }
