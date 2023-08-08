@@ -3,6 +3,7 @@
 	padding: 0;
 	box-sizing: border-box;
 }
+
 .body-contents {
 	display: flex;
 	flex-direction: column;
@@ -10,11 +11,8 @@
 	justify-content: center;
 }
 
-.grids {
-	height: 48em;
-	width: 48em;
-	display: flex;
-	flex-wrap: wrap;
+.grid-container {
+	display: grid;
 	position: absolute;
 	top: 50%;
 	left: 50%;
@@ -25,10 +23,7 @@
 .cell {
 	height: 3em;
 	width: 3em;
-	background-color: red;
+	background-color: white;
 	caret-color: transparent;
-}
-
-.test {
-	background-color: blue;
+	border: 2px solid red;
 }
