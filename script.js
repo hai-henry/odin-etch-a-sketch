@@ -2,27 +2,7 @@ const container = document.querySelector(".grid-container");
 const grids = document.getElementById("grids");
 
 setGrid(16);
-
-let isDragging = false;
-
-container.addEventListener("mousedown", function (e) {
-	isDragging = true;
-	if (e.target.classList.contains("cell")) {
-		draw(e.target);
-	}
-});
-
-container.addEventListener("mouseover", function (e) {
-	if (isDragging) {
-		if (e.target.classList.contains("cell")) {
-			draw(e.target);
-		}
-	}
-});
-
-container.addEventListener("mouseup", function () {
-	isDragging = false;
-});
+draw();
 
 function setGrid(size) {
 	grids.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
@@ -35,6 +15,29 @@ function setGrid(size) {
 	}
 }
 
-function draw(cell) {
-	cell.style.backgroundColor = "blue";
+function color(cell) {
+	cell.style.backgroundColor = document.getElementById("color-picker").value;
+}
+
+function draw() {
+	let isDragging = false;
+
+	container.addEventListener("mousedown", function (e) {
+		isDragging = true;
+		if (e.target.classList.contains("cell")) {
+			color(e.target);
+		}
+	});
+
+	container.addEventListener("mouseover", function (e) {
+		if (isDragging) {
+			if (e.target.classList.contains("cell")) {
+				color(e.target);
+			}
+		}
+	});
+
+	container.addEventListener("mouseup", function () {
+		isDragging = false;
+	});
 }
